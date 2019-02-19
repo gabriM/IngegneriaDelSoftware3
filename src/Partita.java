@@ -57,6 +57,11 @@ public class Partita extends Categoria {
 			
 		}
 	}
+    
+    public void inserisciValoriPredefiniti(){
+    	genere.getValore().setValore("Maschi");
+    	fasciaEta.getValore().setValore("16-50");
+    }
 	
 	// Getters and Setters generati automaticamente
 

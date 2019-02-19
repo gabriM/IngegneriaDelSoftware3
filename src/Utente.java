@@ -12,7 +12,19 @@ public class Utente implements Serializable{
 		{
 			nomeUtente=_nomeUtente;
 		}
-
+		
+		
+		public Boolean confrontaUtente(Utente uConfronto){
+			Boolean uguale;
+			if(nomeUtente.equalsIgnoreCase(uConfronto.getNomeUtente()))
+				uguale=true;
+			else
+				uguale=false;
+			
+			return uguale;
+		}
+		
+		
 
 		public String getNomeUtente() {
 			return nomeUtente;

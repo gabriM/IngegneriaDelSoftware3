@@ -69,6 +69,9 @@ public class Categoria implements Serializable{
 		}
 	}
 	
+	 public void inserisciValoriPredefiniti(){
+	    	
+	    }
 	
 	// Visualizza tutti i campi di una categoria
 	public void visualizzaCampi(){

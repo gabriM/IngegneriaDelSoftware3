@@ -56,6 +56,30 @@ public class Evento implements Serializable{
 	}
 	
 	
+	// Metodo che genera un evento standard per velocizzare la fase di testing
+	public void inserisciValoriPredefinitiEvento()throws Exception{
+		Date termineIsc=new Date("10/07/2019");
+		Date dataEV=new Date("10/08/2019");
+		Date dataFine=new Date("10/09/2019");
+		Date dataRitiroIsc=new Date("10/06/2019");
+		
+		categoria.getTitolo().getValore().setValore("Amichevole test");
+		categoria.getnPartecipanti().getValore().setValore(5);
+		categoria.getTolleranzaPartecipanti().getValore().setValore(2);
+		categoria.getTermineIscrizione().getValore().setValore(termineIsc);
+		categoria.getLuogo().getValore().setValore("Predore");
+		categoria.getData().getValore().setValore(dataEV);
+		categoria.getOra().getValore().setValore("10:10");
+		categoria.getDurata().getValore().setValore("02:00");
+		categoria.getQuotaIndividuale().getValore().setValore("10 Euro");
+		categoria.getCompresoQuota().getValore().setValore("Niente");
+		categoria.getDataFine().getValore().setValore(dataFine);
+		categoria.getDataRitiroIscrizione().getValore().setValore(dataRitiroIsc);
+		categoria.getOraFine().getValore().setValore("12:10");
+		categoria.getNote().getValore().setValore("Vuoto");
+		categoria.inserisciValoriPredefiniti();
+		
+	}
 	
 	// Metodo che controlla se un utente � gi� iscritto ad un evento
 	public Boolean giaIscritto(Utente utente) {
