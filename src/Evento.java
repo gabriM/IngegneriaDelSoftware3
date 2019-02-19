@@ -205,6 +205,8 @@ public class Evento implements Serializable{
 		
 		return messaggiStato;
 	}
+	
+	// Manda messaggi per eventi cancellati
 	public ArrayList<Messaggio> controlloEventoCancellato(){
 		ArrayList<Messaggio> messaggiStato = new ArrayList<>();
 		if(stato.equalsIgnoreCase("Annullato")){

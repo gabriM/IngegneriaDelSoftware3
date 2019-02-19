@@ -94,12 +94,12 @@ public class Main {
 		// Controllo se utente gi� esistente 
 		Boolean esistente =false;
 		int numUtente=0;
-		/*for(int i=0; i<elencoUtenti.size();i++){
+		for(int i=0; i<elencoUtenti.size();i++){
 			if (elencoUtenti.get(i).getNomeUtente().equalsIgnoreCase(utente)){
 				esistente =true;
 				numUtente=i;
 			}	
-		}*/
+		}
 		// Se non esiste ne creo uno nuovo
 		if (!esistente){
 			Utente nuovoUtente= new Utente(utente);
