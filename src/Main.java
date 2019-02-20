@@ -35,16 +35,18 @@ public class Main {
 		final String SCELTAEVENTOPUBBLICAZIONE ="Quale evento vuoi pubblicare?";
 		final String SCELTAMSG ="Quale messaggio vuoi eliminare?";
 		final String NOMEEVENTO="Nome evento: ";
-		final String VALIDITAPUBBLICAZIONE = "L'evento selezionato ï¿½ valido, ï¿½ stato pubblicato ed ï¿½ visibile sulla bacheca.";
-		final String NONVALIDITAPUBBLICAZIONE = "L'evento selezionato non ï¿½ valido! Selezionare un altro evento. \n (Un Evento ï¿½ valido solo se ï¿½ stato assegnato un valore a tutti i campi obbligatori)";
+		final String VALIDITAPUBBLICAZIONE = "L'evento selezionato è valido, è stato pubblicato ed è visibile sulla bacheca.";
+		final String NONVALIDITAPUBBLICAZIONE = "L'evento selezionato non è valido! Selezionare un altro evento. \n (Un Evento è valido solo se è stato assegnato un valore a tutti i campi obbligatori)";
 		final String BACHECAVUOTA = "Non vi sono eventi validi pubblicati.";
+		final String BACHECAEVENTIVUOTA = "Non vi sono eventi validi a cui ti è consentito iscriverti.";
 		final String EVENTIVUOTI = "Non ci sono eventi creati e non acora pubblicati in bacheca.";
 		final String EVENTIPUBBLICATIVUOTI = "Non hai ancora pubblicato eventi in bacheca.";
 		final String MESSAGGIVUOTI = "Non ci sono messaggi.";
 		final String MSGEVENTO="Evento creato con successo";
 		final String MSGPROBDATE="Le date non sono in ordine logico. DATE CANCELLATE";
 		final String SCELTAELIMISCRIZIONE= "A quale evento vuoi cancellare la tua iscrizione?";
-		final String ISCRIZIONIVUOTE= "Non sei Iscritto a nessun evento!";
+		final String ISCRIZIONIVUOTE= "Non sei Iscritto a nessun evento o è passata la data limite per il ritiro dell'iscrizione.";
+		final String CANCELLAZIONIVUOTE= "Non hai creato nessun evento o è passata la data limite per il ritiro dell'evento.";
 		final String SCELTAELIMINEVENTO= "Quale evento pubblicato vuoi cancellare?";
 
 		
@@ -91,7 +93,7 @@ public class Main {
 		String utente= Utility.leggiStringa(MSGLOGIN);
 		
 		
-		// Controllo se utente giï¿½ esistente 
+		// Controllo se utente già esistente 
 		Boolean esistente =false;
 		int numUtente=0;
 		for(int i=0; i<elencoUtenti.size();i++){
@@ -322,7 +324,17 @@ public class Main {
 			case 6:
 				// Partecipa a evento
 				
-				if(bacheca.getElencoEventi().size() != 0){
+				Boolean eventiValidi=false;
+				
+				// Controlla se esite almeno un evento a cui potersi iscrivere
+				for(int i=0; i< bacheca.getElencoEventi().size(); i++){
+					if(!bacheca.getElencoEventi().get(i).giaIscritto(elencoUtenti.get(numUtente))&& bacheca.getElencoEventi().get(i).getStato().equalsIgnoreCase("Aperta")&& bacheca.getElencoEventi().get(i).getPostiLiberi()>0)
+						eventiValidi=true;
+				}
+				
+				
+				
+				if(eventiValidi){
 					// Visualizzazione eventi presenti in bacheca
 					
 					System.out.println("0) Esci");
@@ -345,7 +357,7 @@ public class Main {
 					}
 					
 				}else{
-					System.out.println(BACHECAVUOTA);
+					System.out.println(BACHECAEVENTIVUOTA);
 				}	
 				
 				
@@ -418,14 +430,14 @@ public class Main {
 					boolean iscritto = false;
 
 					for (int i = 0; i < bacheca.getElencoEventi().size(); i++) {
-						if (bacheca.getElencoEventi().get(i).giaIscritto(elencoUtenti.get(numUtente))) {
+						if (bacheca.getElencoEventi().get(i).giaIscritto(elencoUtenti.get(numUtente)) && bacheca.getElencoEventi().get(i).controlloDataEliminazione()) {
 							iscritto = true;
 						}else{
 							iscritto = false;
 						}
 
 					}
-					if(bacheca.getElencoEventi().size() != 0 && iscritto) {
+					if(iscritto) {
 
 							System.out.println("0) Esci");
 							for (int i = 0; i < bacheca.getElencoEventi().size(); i++) {
@@ -453,21 +465,33 @@ public class Main {
 
 				case 9:
 					// Cancellazione Evento
+					Boolean eventiCancellabili=false;
 					
-					
-					System.out.println("0) Esci");
 					for(int i=0; i<bacheca.getElencoEventi().size();i++){
 						if (elencoUtenti.get(numUtente).confrontaUtente(bacheca.getElencoEventi().get(i).getCreatore()) && bacheca.getElencoEventi().get(i).controlloDataEliminazione()){
-							System.out.println(i+1 +")");
-							System.out.println(NOMEEVENTO + bacheca.getElencoEventi().get(i).getCategoria().getTitolo().getValore().getValore());
+							eventiCancellabili=true;
 						}
 					}
 					
-					int numEliminEventoPubblicato = Utility.leggiIntero(0, bacheca.getElencoEventi().size() + 1, SCELTAELIMINEVENTO);
-					
-					if (numEliminEventoPubblicato != 0) {
-						bacheca.getElencoEventi().get(numEliminEventoPubblicato -1).setStato("Annullato");
+					if(eventiCancellabili){
+						System.out.println("0) Esci");
+						for(int i=0; i<bacheca.getElencoEventi().size();i++){
+							if (elencoUtenti.get(numUtente).confrontaUtente(bacheca.getElencoEventi().get(i).getCreatore()) && bacheca.getElencoEventi().get(i).controlloDataEliminazione()){
+								System.out.println(i+1 +")");
+								System.out.println(NOMEEVENTO + bacheca.getElencoEventi().get(i).getCategoria().getTitolo().getValore().getValore());
+							}
+						}
+						
+						int numEliminEventoPubblicato = Utility.leggiIntero(0, bacheca.getElencoEventi().size() + 1, SCELTAELIMINEVENTO);
+						
+						if (numEliminEventoPubblicato != 0) {
+							bacheca.getElencoEventi().get(numEliminEventoPubblicato -1).setStato("Annullato");
+						}
 					}
+					else{
+						System.out.println(CANCELLAZIONIVUOTE);
+					}
+					
 					
 					/*if(elencoUtentiPubblicati.get(numUtenteP).getEventiUtente().size()!=0){
 						for(int i=0; i<elencoUtentiPubblicati.get(numUtenteP).getEventiUtente().size();i++){

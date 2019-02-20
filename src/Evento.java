@@ -12,7 +12,7 @@ public class Evento implements Serializable{
 	
 	final String[] TESTOCHIUSURA={"L'evento "," ha raggiunto un numero sufficiente di iscrizioni e si terra dunque in data "," alle ore "," presso ",". Si ricorda che � necessatrio versare la quota di iscrizione di "," Euro."};
 	final String[] TESTOFALLITO={"L'evento "," NON ha raggiunto un numero sufficiente di iscrizioni ed � quindi stato cancellato."};
-	final String[] TESTOANNULLATO={"L'evento ","E' stato cancellato dall'organizzatore."};
+	final String[] TESTOANNULLATO={"L'evento "," E' stato cancellato dall'organizzatore."};
 	
 	
 	//Attributi
@@ -86,7 +86,7 @@ public class Evento implements Serializable{
 		Boolean iscritto= false;
 		
 		for(int i=0; i< elencoIscritti.size(); i++){
-			if (utente.equals(elencoIscritti.get(i))){
+			if (utente.confrontaUtente(elencoIscritti.get(i))){
 				iscritto= true;
 			}
 		}
@@ -98,23 +98,37 @@ public class Evento implements Serializable{
 	
 	// Controlla che le date siano inserite in maniera coerente con il loro significato
 	public Boolean controlloDate() {
-		Boolean valido= true;
-		Date ultimaIscr = (Date) categoria.getDataRitiroIscrizione().getValore().getValore();
+		Boolean valido = true;
 		Date termIsc= (Date) categoria.getTermineIscrizione().getValore().getValore();
 		Date dataEv= (Date) categoria.getData().getValore().getValore();
-		if(categoria.getDataFine().getValore().getInserito()){
-			Date dataConc= (Date) categoria.getDataFine().getValore().getValore();;			
-			if(termIsc.after(dataEv)||termIsc.after(dataConc)||dataEv.after(dataConc) || ultimaIscr.after(termIsc)){
-				valido=false;
+		if(categoria.getDataRitiroIscrizione().getValore().getInserito()){
+			Date ultimaIscr = (Date) categoria.getDataRitiroIscrizione().getValore().getValore();
+			if(categoria.getDataFine().getValore().getInserito()){
+				Date dataConc= (Date) categoria.getDataFine().getValore().getValore();;			
+				if(termIsc.after(dataEv)||termIsc.after(dataConc)||dataEv.after(dataConc) || ultimaIscr.after(termIsc)){
+					valido=false;
+				}
+			}
+			else if(termIsc.after(dataEv)){
+					valido=false;
+			}else if(ultimaIscr.after(termIsc)){
+					valido=false;
+			}else if(ultimaIscr.equals(termIsc)){
+					valido= true;
 			}
 		}
-		else if(termIsc.after(dataEv)){
-				valido=false;
-		}else if(ultimaIscr.after(termIsc)){
-				valido=false;
-		}else if(ultimaIscr.equals(termIsc)){
-				valido= true;
+		else{
+			if(categoria.getDataFine().getValore().getInserito()){
+				Date dataConc= (Date) categoria.getDataFine().getValore().getValore();;			
+				if(termIsc.after(dataEv)||termIsc.after(dataConc)||dataEv.after(dataConc)){
+					valido=false;
+				}
+			}
+			else if(termIsc.after(dataEv)){
+					valido=false;
+			}
 		}
+		
 				
 		return valido;
 	}
@@ -123,10 +137,27 @@ public class Evento implements Serializable{
 	public ArrayList<Messaggio> controlloNPartecipanti(){
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Date date = new Date();
-		Date ultimaIscr = (Date) categoria.getDataRitiroIscrizione().getValore().getValore();
-		
 		ArrayList<Messaggio> messaggiStato = new ArrayList<>();
-		if (!ultimaIscr.before(date)){
+		
+		if(categoria.getDataRitiroIscrizione().getValore().getInserito()){
+			Date ultimaIscr = (Date) categoria.getDataRitiroIscrizione().getValore().getValore();
+			
+			if (ultimaIscr.before(date)){
+				if (getPostiLiberi()==0 && stato.equalsIgnoreCase("Aperta")){
+					stato= "Chiusa";
+					for (int i=0;i< elencoIscritti.size();i++){
+						
+						Utente nomeUtente= elencoIscritti.get(i);
+						String testo= TESTOCHIUSURA[0] +categoria.getTitolo().getValore().getValore() + TESTOCHIUSURA[1] + dateFormat.format(categoria.getData().getValore().getValore())+ TESTOCHIUSURA[2] + categoria.getOra().getValore().getValore()+ TESTOCHIUSURA[3] + categoria.getLuogo().getValore().getValore() +TESTOCHIUSURA[4] + categoria.getQuotaIndividuale().getValore().getValore()+ TESTOCHIUSURA[5];                               	
+						Messaggio msg =new Messaggio(nomeUtente,testo);
+						
+						messaggiStato.add(msg);
+			
+					}
+				}
+			}
+		}
+		else{
 			if (getPostiLiberi()==0 && stato.equalsIgnoreCase("Aperta")){
 				stato= "Chiusa";
 				for (int i=0;i< elencoIscritti.size();i++){
@@ -138,21 +169,9 @@ public class Evento implements Serializable{
 					messaggiStato.add(msg);
 		
 				}
-			
-			}else if(stato.equalsIgnoreCase("Chiusa2")){
-				stato= "Chiusa";
-				for (int i=0;i< elencoIscritti.size();i++) {
-
-					Utente nomeUtente = elencoIscritti.get(i);
-					String testo = TESTOCHIUSURA[0] + categoria.getTitolo().getValore().getValore() + TESTOCHIUSURA[1] + dateFormat.format(categoria.getData().getValore().getValore()) + TESTOCHIUSURA[2] + categoria.getOra().getValore().getValore() + TESTOCHIUSURA[3] + categoria.getLuogo().getValore().getValore() + TESTOCHIUSURA[4] + categoria.getQuotaIndividuale().getValore().getValore() + TESTOCHIUSURA[5];
-					Messaggio msg = new Messaggio(nomeUtente, testo);
-
-					messaggiStato.add(msg);
-				}
-
+			}
 		}
 		
-		}
 		
 		return messaggiStato;
 		
@@ -188,7 +207,7 @@ public class Evento implements Serializable{
 		// Controla se � stata superata la data di termine delle iscrizioni senza aver raggiunto il numero minimo di iscritti
 		// Genera dei messaggi in caso affermativo
 		if( ((Date) categoria.getTermineIscrizione().getValore().getValore()).before(date)){
-			if (getPostiLiberi()!=0 && getPostiLiberiPartecipanti() != 0){
+			if (getPostiMinimiPartecipanti()> 0){
 				stato="Fallita";
 				
 				for (int i=0;i< elencoIscritti.size();i++){
@@ -197,8 +216,18 @@ public class Evento implements Serializable{
 					Messaggio msg =new Messaggio(nomeUtente,testo);
 					messaggiStato.add(msg);
 				}
-			}else if(getPostiLiberi() != 0 && getPostiLiberiPartecipanti() == 0) {
+			}
+			else{
 				stato = "Chiusa2";
+				
+				for (int i=0;i< elencoIscritti.size();i++) {
+
+					Utente nomeUtente = elencoIscritti.get(i);
+					String testo = TESTOCHIUSURA[0] + categoria.getTitolo().getValore().getValore() + TESTOCHIUSURA[1] + dateFormat.format(categoria.getData().getValore().getValore()) + TESTOCHIUSURA[2] + categoria.getOra().getValore().getValore() + TESTOCHIUSURA[3] + categoria.getLuogo().getValore().getValore() + TESTOCHIUSURA[4] + categoria.getQuotaIndividuale().getValore().getValore() + TESTOCHIUSURA[5];
+					Messaggio msg = new Messaggio(nomeUtente, testo);
+
+					messaggiStato.add(msg);
+				}
 			}
 		}
 		
@@ -239,21 +268,13 @@ public class Evento implements Serializable{
 	}
 	
 	// Metodo che ritorna il numero di posti liberi di un evento
-	public int getPostiLiberiPartecipanti(){
-		int iscritti = elencoIscritti.size();
-		int partecipanti = (int) categoria.getnPartecipanti().getValore().getValore();
-		if(iscritti <= partecipanti)
-			return (int) categoria.getnPartecipanti().getValore().getValore() - elencoIscritti.size();
-		else
-			return 0;
+	public int getPostiMinimiPartecipanti(){
+			return categoria.getPartecipantiMin() - elencoIscritti.size();
 	}
 
 	public int getPostiLiberi(){
-		int totali = 0;
-		int partecipanti = (int)categoria.getnPartecipanti().getValore().getValore();
-		int esubero = (int)categoria.getTolleranzaPartecipanti().getValore().getValore();
-		totali = partecipanti + esubero;
-		return totali - elencoIscritti.size();
+		
+		return categoria.getPartecipantiMax() - elencoIscritti.size();
 	}
 
 

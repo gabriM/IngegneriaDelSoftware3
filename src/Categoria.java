@@ -83,6 +83,26 @@ public class Categoria implements Serializable{
 		
 	}
 	
+	public int getPartecipantiMax() {
+		if(tolleranzaPartecipanti.getValore().getInserito()){
+			return (int) nPartecipanti.getValore().getValore() + (int) tolleranzaPartecipanti.getValore().getValore();
+		}
+		else{
+			return (int) nPartecipanti.getValore().getValore();
+		}
+		
+	}
+	
+	public int getPartecipantiMin() {
+		if(tolleranzaPartecipanti.getValore().getInserito()){
+			return (int) nPartecipanti.getValore().getValore() - (int) tolleranzaPartecipanti.getValore().getValore();
+		}
+		else{
+			return (int) nPartecipanti.getValore().getValore();
+		}
+		
+	}
+	
 	// Getters and Setters generati automaticamente
 	public String getNome() {
 		return nome;
