@@ -10,7 +10,7 @@ import MyLib.Menu;
 import MyLib.ServizioFile;
 import MyLib.Utility;
 
-
+//Ã²prova
 
 public class Main {
  
@@ -35,18 +35,18 @@ public class Main {
 		final String SCELTAEVENTOPUBBLICAZIONE ="Quale evento vuoi pubblicare?";
 		final String SCELTAMSG ="Quale messaggio vuoi eliminare?";
 		final String NOMEEVENTO="Nome evento: ";
-		final String VALIDITAPUBBLICAZIONE = "L'evento selezionato è valido, è stato pubblicato ed è visibile sulla bacheca.";
-		final String NONVALIDITAPUBBLICAZIONE = "L'evento selezionato non è valido! Selezionare un altro evento. \n (Un Evento è valido solo se è stato assegnato un valore a tutti i campi obbligatori)";
+		final String VALIDITAPUBBLICAZIONE = "L'evento selezionato ï¿½ valido, ï¿½ stato pubblicato ed ï¿½ visibile sulla bacheca.";
+		final String NONVALIDITAPUBBLICAZIONE = "L'evento selezionato non ï¿½ valido! Selezionare un altro evento. \n (Un Evento ï¿½ valido solo se ï¿½ stato assegnato un valore a tutti i campi obbligatori)";
 		final String BACHECAVUOTA = "Non vi sono eventi validi pubblicati.";
-		final String BACHECAEVENTIVUOTA = "Non vi sono eventi validi a cui ti è consentito iscriverti.";
+		final String BACHECAEVENTIVUOTA = "Non vi sono eventi validi a cui ti ï¿½ consentito iscriverti.";
 		final String EVENTIVUOTI = "Non ci sono eventi creati e non acora pubblicati in bacheca.";
 		final String EVENTIPUBBLICATIVUOTI = "Non hai ancora pubblicato eventi in bacheca.";
 		final String MESSAGGIVUOTI = "Non ci sono messaggi.";
 		final String MSGEVENTO="Evento creato con successo";
 		final String MSGPROBDATE="Le date non sono in ordine logico. DATE CANCELLATE";
 		final String SCELTAELIMISCRIZIONE= "A quale evento vuoi cancellare la tua iscrizione?";
-		final String ISCRIZIONIVUOTE= "Non sei Iscritto a nessun evento o è passata la data limite per il ritiro dell'iscrizione.";
-		final String CANCELLAZIONIVUOTE= "Non hai creato nessun evento o è passata la data limite per il ritiro dell'evento.";
+		final String ISCRIZIONIVUOTE= "Non sei Iscritto a nessun evento o ï¿½ passata la data limite per il ritiro dell'iscrizione.";
+		final String CANCELLAZIONIVUOTE= "Non hai creato nessun evento o ï¿½ passata la data limite per il ritiro dell'evento.";
 		final String SCELTAELIMINEVENTO= "Quale evento pubblicato vuoi cancellare?";
 
 		
@@ -93,7 +93,7 @@ public class Main {
 		String utente= Utility.leggiStringa(MSGLOGIN);
 		
 		
-		// Controllo se utente già esistente 
+		// Controllo se utente giï¿½ esistente 
 		Boolean esistente =false;
 		int numUtente=0;
 		for(int i=0; i<elencoUtenti.size();i++){
