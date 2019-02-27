@@ -9,7 +9,7 @@ import MyLib.Utility;
 /**
  * Classe che definisce un <i>Evento</i>.
  *
- * Un evento contiene i dati riguardanti le sue caratteristiche:
+ * Un evento contiene le seguenti caratteristiche:
  * categoria;
  * validità;
  * creatore;

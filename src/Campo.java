@@ -7,7 +7,7 @@ import MyLib.Utility;
 /**
  * Classe che definisce un <i>Campo</i>.
  *
- * Un campo contiene i dati riguardanti un caratteristca di un determinato evento:
+ * Un campo possiede le seguenti caratterisitiche:
  * nome;
  * descrizione;
  * obbligatorietà del campo;
@@ -18,7 +18,6 @@ import MyLib.Utility;
  * @version 3.0 1 Febbraio 2019
  *
  */
-
 public class Campo implements Serializable{
 	
 	/*Attributi*/
@@ -39,7 +38,6 @@ public class Campo implements Serializable{
 	 *
 	 * @author Gabriele Manenti
 	 */
-
 	public Campo(String _nome, String _descrizione, Boolean _obbligatorio, int _valore){
 		nome =_nome;
 		descrizione= _descrizione;

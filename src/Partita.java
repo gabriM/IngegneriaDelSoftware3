@@ -6,7 +6,7 @@ import MyLib.Utility;
 
 public class Partita extends Categoria {
 	private Campo genere=new Campo("Genere","Indica se i partecipanti sono maschi o femmine",true,STRING);
-	private Campo fasciaEta=new Campo("Fascia di et�","Indica l'et� massima e minima per partecipare all'evento",true,STRING);
+	private Campo fasciaEta=new Campo("Fascia di et�","Indica l'età massima e minima per partecipare all'evento",true,STRING);
 	private ArrayList<Campo> elencoCampi = new ArrayList<>();
 	
 	
