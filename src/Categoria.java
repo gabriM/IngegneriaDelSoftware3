@@ -253,7 +253,7 @@ public class Categoria implements Serializable{
 	/*Setters*/
 	/**
 	 * Metodo che imposta il nome della Categoria
-	 * @return nome della categoria
+	 * @param nome della categoria
 	 *
 	 * @author Gabriele Manenti
 	 */
@@ -262,7 +262,7 @@ public class Categoria implements Serializable{
 	}
 	/**
 	 * Metodo che imposta la descrizione della Categoria
-	 * @return descrizione del campo
+	 * @param descrizione del campo
 	 *
 	 * @author Gabriele Manenti
 	 */
@@ -271,7 +271,7 @@ public class Categoria implements Serializable{
 	}
 	/**
 	 * Metodo che imposta il titolo dell'evento
-	 * @return titolo dell'evento
+	 * @param titolo dell'evento
 	 *
 	 * @author Gabriele Manenti
 	 */
@@ -280,91 +280,151 @@ public class Categoria implements Serializable{
 	}
 	/**
 	 * Metodo che imposta il numero di partecipanti
-	 * @return numero partcipanti
+	 * @param nPartecipanti il numero di partecipanti
 	 *
 	 * @author Gabriele Manenti
 	 */
 	public void setnPartecipanti(Campo nPartecipanti) {
 		this.nPartecipanti = nPartecipanti;
 	}
-
-
+	/**
+	 * Metodo che imposta la data di termine iscrizione
+	 * @param termineIscrizione  la data di termine iscrizione
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void setTermineIscrizione(Campo termineIscrizione) {
 		this.termineIscrizione = termineIscrizione;
 	}
-
-
+	/**
+	 * Metodo che imposta il luogo dell'evento
+	 * @param luogo luogo dell'evento
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void setLuogo(Campo luogo) {
 		this.luogo = luogo;
 	}
-
-
+	/**
+	 * Metodo che imposta l'ora dell'evento
+	 * @param ora l'ora dell'evento
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void setOra(Campo ora) {
 		this.ora = ora;
 	}
-
-
+	/**
+	 * Metodo che imposta la durata dell'evento
+	 * @param durata la durata dell'evento
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void setDurata(Campo durata) {
 		this.durata = durata;
 	}
-
-
+	/**
+	 * Metodo che imposta la quota individuale
+	 * @param quotaIndividuale la quota individuale di partecipazione per l'evento
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void setQuotaIndividuale(Campo quotaIndividuale) {
 		this.quotaIndividuale = quotaIndividuale;
 	}
-
-
+	/**
+	 * Metodo che imposta il compreso nella quota
+	 * @param compresoQuota il compreso nella quota individuale
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void setCompresoQuota(Campo compresoQuota) {
 		this.compresoQuota = compresoQuota;
 	}
-
-
+	/**
+	 * Metodo che imposta la data di fine dell'evento
+	 * @param dataFine la data di fine dell'evento
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void setDataFine(Campo dataFine) {
 		this.dataFine = dataFine;
 	}
-
-
+	/**
+	 * Metodo che imposta l'ora di fine dell'evento
+	 * @param oraFine l'ora di fine dell'evento
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void setOraFine(Campo oraFine) {
 		this.oraFine = oraFine;
 	}
-
-
+	/**
+	 * Metodo che imposta le note dell'evento
+	 * @param note le note dell'evento
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void setNote(Campo note) {
 		this.note = note;
 	}
-
-
-
+	/**
+	 * Permette di cambiare l'elenco di Campi
+	 * @param elencoCampi il nuovo elenco
+	 *
+	 */
 	public void setElencoCampi(ArrayList<Campo> elencoCampi) {
 		this.elencoCampi = elencoCampi;
 	}
-
+	/**
+	 * Metodo che imposta la data dell'evento
+	 * @param data la data dell'evento
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void setData(Campo data) {
 		this.data = data;
 	}
-
-
+	/**
+	 * Metodo che imposta il numero di partecipanti in esubero
+	 * @param tolleranzaPartecipanti il numero di partecipanti in esubero
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void setTolleranzaPartecipanti(Campo tolleranzaPartecipanti) {
 		this.tolleranzaPartecipanti = tolleranzaPartecipanti;
 	}
-
+	/**
+	 * Metodo che imposta la data di ritiro iscrizione e di eliminazione evento
+	 * @param dataRitiroIscrizione la data di ritiro iscrizione e di eliminazione evento
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void setDataRitiroIscrizione(Campo dataRitiroIscrizione) {
 		this.dataRitiroIscrizione = dataRitiroIscrizione;
 	}
 
-	//Metodo che permette di inserire i valori ai campi comuni a tutte le categorie
+	/*Metodi*/
+
+
+	/**
+	 * Assegna i valori ai campi comuni a tutte le categorie
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void inserisciCampi()throws Exception{
 		for (int i=0; i< elencoCampi.size(); i++){
 			elencoCampi.get(i).inserisciValore();
 			
 		}
 	}
-	
-	 public void inserisciValoriPredefiniti(){
-	    	
-	    }
-	
-	// Visualizza tutti i campi di una categoria
+	/**
+	 * Ritorna una stringa che descrive tutti i campi di una categoria
+	 *
+	 * @return tutti i campi di una categoria
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void visualizzaCampi(){
 		
 		for (int i=0; i< elencoCampi.size(); i++){
@@ -373,7 +433,12 @@ public class Categoria implements Serializable{
 		}
 		
 	}
-	
+	/**
+	 * Ritorna il numero di partecipanti compresi quelli di tolleranza
+	 * @return il numero di partecipanti compresi quelli di tolleranza
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public int getPartecipantiMax() {
 		if(tolleranzaPartecipanti.getValore().getInserito()){
 			return (int) nPartecipanti.getValore().getValore() + (int) tolleranzaPartecipanti.getValore().getValore();
@@ -383,7 +448,12 @@ public class Categoria implements Serializable{
 		}
 		
 	}
-	
+	/**
+	 * Ritorna il numero di partecipanti senza contare quelli in esubero
+	 * @return il numero di partecipanti senza contare quelli in esubero
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public int getPartecipantiMin() {
 		if(tolleranzaPartecipanti.getValore().getInserito()){
 			return (int) nPartecipanti.getValore().getValore() - (int) tolleranzaPartecipanti.getValore().getValore();

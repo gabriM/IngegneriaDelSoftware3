@@ -126,6 +126,7 @@ public class Campo implements Serializable{
 	public void setValore(Valore valore) {
 		this.valore = valore;
 	}
+
 	/*Metodi*/
 	/**
 	 * Ritorna una stringa che descrive il campo
@@ -176,15 +177,5 @@ public class Campo implements Serializable{
 		}
 	}
 	}
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
 }
 
