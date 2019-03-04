@@ -1,28 +1,35 @@
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-
+/**
+ * Classe che definisce un <i>Valore</i>.
+ *
+ * Un messaggio contiene le seguenti caratteristiche:
+ * destinatario;
+ * testo del messaggio;
+ *
+ * @author Gabriele Manenti
+ *
+ * @version 3.0 1 Febbraio 2019
+ *
+ */
 public class Valore implements Serializable{
 	
-	//Attributi
+	/*Attributi*/
 	private int tipo;
 	private String testo;
 	private int numero;
 	private Date giorno;
 	private Boolean inserito;
 	
-	
-	//Costruttori
+
 	public Valore(int _tipo){
 		tipo=_tipo;
 		inserito= false;
 	}
 	
-	//Metodi
-	
-	
-	
+
+	/*Metodi*/
 	public void removeValore(){
 		inserito=false;
 	}

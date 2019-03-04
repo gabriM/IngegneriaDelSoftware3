@@ -25,7 +25,7 @@ public class Evento implements Serializable{
 	
 	/*Costanti*/
 	final String[] TESTOCHIUSURA={"L'evento "," ha raggiunto un numero sufficiente di iscrizioni e si terra dunque in data "," alle ore "," presso ",". Si ricorda che � necessatrio versare la quota di iscrizione di "," Euro."};
-	final String[] TESTOFALLITO={"L'evento "," NON ha raggiunto un numero sufficiente di iscrizioni ed � quindi stato cancellato."};
+	final String[] TESTOFALLITO={"L'evento "," NON ha raggiunto un numero sufficiente di iscrizioni ed è quindi stato cancellato."};
 	final String[] TESTOANNULLATO={"L'evento "," E' stato cancellato dall'organizzatore."};
 	
 	

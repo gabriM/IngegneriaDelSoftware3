@@ -3,22 +3,54 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import MyLib.Utility;
-
+/**
+ * La classe Partita estende la classe Categoria per poter creare oggetti Partita.
+ *
+ * In particolare definisce:
+ *
+ * valoreMin, il valore minimo del range di riferimento di un campo dell'esame;
+ * valoreMax, il valore massimo del range di riferimento di un campo dell'esame;
+ * sogliaErrore, la soglia(troppo BASSA o troppo ALTA) per cui sicuramente e' avvenuta un'anomalia durante l'analisi in merito all'esame.
+ *
+ *
+ * @author Manenti Gabriele
+ */
 public class Partita extends Categoria {
 	private Campo genere=new Campo("Genere","Indica se i partecipanti sono maschi o femmine",true,STRING);
-	private Campo fasciaEta=new Campo("Fascia di et�","Indica l'età massima e minima per partecipare all'evento",true,STRING);
+	private Campo fasciaEta=new Campo("Fascia di età","Indica l'età massima e minima per partecipare all'evento",true,STRING);
 	private ArrayList<Campo> elencoCampi = new ArrayList<>();
-	
-	
-	
+
+
+	public Campo getGenere() {
+		return genere;
+	}
+
+	public Campo getFasciaEta() {
+		return fasciaEta;
+	}
+
+	public ArrayList<Campo> getElencoCampi() {
+		return elencoCampi;
+	}
+
+	public void setGenere(Campo genere) {
+		this.genere = genere;
+	}
+
+	public void setFasciaEta(Campo fasciaEta) {
+		this.fasciaEta = fasciaEta;
+	}
+
+	public void setElencoCampi(ArrayList<Campo> elencoCampi) {
+		this.elencoCampi = elencoCampi;
+	}
+
 	
 	public Partita(){
 		super("Partita di Calcio","Evento sportivo che prevede un match di 90 minuti");
 		creaArray();
 	}
 
-	
-	
 	public void creaArray(){
 		
 		elencoCampi.add(super.getTitolo());
@@ -62,34 +94,7 @@ public class Partita extends Categoria {
     	genere.getValore().setValore("Maschi");
     	fasciaEta.getValore().setValore("16-50");
     }
-	
-	// Getters and Setters generati automaticamente
 
-	public Campo getGenere() {
-		return genere;
-	}
-
-	public Campo getFasciaEta() {
-		return fasciaEta;
-	}
-
-	public void setGenere(Campo genere) {
-		this.genere = genere;
-	}
-
-	public void setFasciaEta(Campo fasciaEta) {
-		this.fasciaEta = fasciaEta;
-	}
-
-
-	public ArrayList<Campo> getElencoCampi() {
-		return elencoCampi;
-	}
-
-
-	public void setElencoCampi(ArrayList<Campo> elencoCampi) {
-		this.elencoCampi = elencoCampi;
-	}
 
 	
 	
