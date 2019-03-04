@@ -4,9 +4,12 @@ import java.util.Date;
 /**
  * Classe che definisce un <i>Valore</i>.
  *
- * Un messaggio contiene le seguenti caratteristiche:
- * destinatario;
- * testo del messaggio;
+ * Un valore contiene le seguenti caratteristiche:
+ * tipo;
+ * testo del valore;
+ * numero;
+ * data;
+ * verifica inserimento;
  *
  * @author Gabriele Manenti
  *
@@ -22,20 +25,76 @@ public class Valore implements Serializable{
 	private Date giorno;
 	private Boolean inserito;
 	
-
+	/*Costruttori*/
+	/**
+	 * Costruttore di default.
+	 * Un valore e' costituito da tipo, testo, numero.
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public Valore(int _tipo){
 		tipo=_tipo;
 		inserito= false;
 	}
-	
 
+	/*Getters*/
+	/**
+	 * Ritorna il tipo dell'oggetto
+	 * @return il tipo dell'oggetto
+	 *
+	 * @author Gabriele Manenti
+	 */
+	public int getTipo() {
+		return tipo;
+	}
+	/**
+	 * Ritorna la verifica di inserimento di un valore
+	 * @return la verifica di inserimento di un valore
+	 *
+	 * @author Gabriele Manenti
+	 */
+	public Boolean getInserito() {
+		return inserito;
+	}
+	/**
+	 * Metodo che imposta il tipo di un oggetto
+	 * @param tipo il tipo di un oggetto
+	 *
+	 * @author Gabriele Manenti
+	 */
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+
+	}
+	/**
+	 * Metodo che imposta la verifica di inserimento di un valore
+	 * @param inserito la verifica di inserimento di un valore
+	 *
+	 * @author Gabriele Manenti
+	 */
+	public void setInserito(Boolean inserito) {
+		this.inserito = inserito;
+	}
+	
 	/*Metodi*/
+	/**
+	 * Imposta la verifica dell'inserimento come false (rimuove compilazione valore)
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void removeValore(){
 		inserito=false;
 	}
-	
-	
-	// Getters and Setters 
+	/**
+	 * Controlla che tipo di valore è l'oggetto esaminato:
+	 *
+	 * @return 0 in caso di stringa
+	 * @return 1 in caso di valore numerico(INT)
+	 * @return 2 in caso di data
+	 * @return 3 in caso di ora
+	 *
+	 * @author Matteo Gusmini
+	 */
 	public Object getValore() {
 		switch(tipo){
 		case 0:
@@ -51,43 +110,49 @@ public class Valore implements Serializable{
 			
 		}
 		return tipo;
-		
-		
+
 	}
-	
-	
-	
-	
+	/**
+	 * Metodo preimpostato che imposta valore di default
+	 *
+	 * @param testo il tipo da impostare
+	 *
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void setValore(String testo) {
 		this.testo = testo;
 		inserito=true;
 	}
+	/**
+	 * Metodo preimpostato che imposta valore di default
+	 *
+	 * @param numero il tipo da impostare
+	 *
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void setValore(int numero) {
 		this.numero = numero;
 		inserito=true;
 	}
+	/**
+	 * Metodo preimpostato che imposta valore di default
+	 *
+	 * @param giorno il tipo da impostare
+	 *
+	 *
+	 * @author Gabriele Manenti
+	 */
 	public void setValore(Date giorno) {
 		this.giorno = giorno;
 		inserito=true;
 	}
+	
+	
+	
+	
 
-	public int getTipo() {
-		return tipo;
-		
-	}
-
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
-		
-	}
-
-	public Boolean getInserito() {
-		return inserito;
-	}
-
-	public void setInserito(Boolean inserito) {
-		this.inserito = inserito;
-	}
 	
 	
 	

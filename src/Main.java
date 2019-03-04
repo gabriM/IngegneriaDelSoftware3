@@ -21,7 +21,7 @@ import MyLib.Utility;
 
 public class Main {
 	/**
-	 * Metodo Main
+	 * Metodo Main del programma
 	 *
 	 */
 	public static void main(String[] args) throws Exception{

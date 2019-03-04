@@ -429,12 +429,6 @@ public class Evento implements Serializable{
 		return categoria.getPartecipantiMax() - elencoIscritti.size();
 	}
 
-
-
-	
-	
-	
-	
 	
 
 }

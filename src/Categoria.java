@@ -76,25 +76,6 @@ public class Categoria implements Serializable{
 		descrizione= _descrizione;
 	}
 
-	//Metodi
-	
-	public void creaArray(){
-		elencoCampi.add(titolo);
-		elencoCampi.add(nPartecipanti);
-        elencoCampi.add(tolleranzaPartecipanti);
-		elencoCampi.add(termineIscrizione);
-		elencoCampi.add(luogo);
-		elencoCampi.add(data);
-		elencoCampi.add(ora);
-		elencoCampi.add(durata);
-		elencoCampi.add(quotaIndividuale);
-		elencoCampi.add(compresoQuota);
-		elencoCampi.add(dataFine);
-        elencoCampi.add(dataRitiroIscrizione);
-		elencoCampi.add(oraFine);
-		elencoCampi.add(note);
-	}
-
 	/*Getters*/
 	/**
 	 * Ritorna il nome della Categoria
@@ -405,8 +386,27 @@ public class Categoria implements Serializable{
 	}
 
 	/*Metodi*/
-
-
+	/**
+	 * Crea array con tutti i campi relativi all'evento
+	 *
+	 * @author Gabriele Manenti
+	 */
+	public void creaArray(){
+		elencoCampi.add(titolo);
+		elencoCampi.add(nPartecipanti);
+		elencoCampi.add(tolleranzaPartecipanti);
+		elencoCampi.add(termineIscrizione);
+		elencoCampi.add(luogo);
+		elencoCampi.add(data);
+		elencoCampi.add(ora);
+		elencoCampi.add(durata);
+		elencoCampi.add(quotaIndividuale);
+		elencoCampi.add(compresoQuota);
+		elencoCampi.add(dataFine);
+		elencoCampi.add(dataRitiroIscrizione);
+		elencoCampi.add(oraFine);
+		elencoCampi.add(note);
+	}
 	/**
 	 * Assegna i valori ai campi comuni a tutte le categorie
 	 *
