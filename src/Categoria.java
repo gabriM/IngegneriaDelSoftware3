@@ -47,8 +47,8 @@ public class Categoria implements Serializable{
 	private Campo nPartecipanti=new Campo("Numero di partecipanti"," Stabilisce il numero di persone da coinvolgere nell'evento",true,INT);
 	private Campo tolleranzaPartecipanti=new Campo("Numero di partecipanti in esubero"," Stabilisce il numero di persone in esubero al numero di partecipanti",false,INT);
 	private Campo termineIscrizione=new Campo("Termine ultimo iscrizione","Indica l'ultimo giorno utile per iscriversi all'evento",true,DATE);
-	private Campo luogo=new Campo("Luogo","Indica l'indirizzo in cui si svolgerà l'evento oppure il punto di ritrovo",true,STRING);
-	private Campo data=new Campo("Data Evento"," Indica la data in cui si svolgerà l'evento, o la data di inizio nel caso l'evento duri più giorni",true,DATE);
+	private Campo luogo=new Campo("Luogo","Indica l'indirizzo in cui si svolger� l'evento oppure il punto di ritrovo",true,STRING);
+	private Campo data=new Campo("Data Evento"," Indica la data in cui si svolger� l'evento, o la data di inizio nel caso l'evento duri più giorni",true,DATE);
 	private Campo ora=new Campo("Ora","Indica l'ora in cui i partecipanti dovranno recarisi nel luogo prestabilito",true,ORA);
 	private Campo durata=new Campo("Durata","Indica la durata in termini di numero(approssimativo)di ore e minuti, per gli eventi che si esauriscono in un sol giorno, o in termini di numero esatto di giorni, per gli eventi che occupano più giorni consecutivi",false,ORA);
 	private Campo quotaIndividuale=new Campo("Quota individuale"," indica la spesa (o una stima della stessa) che ogni partecipante all'iniziativa dovrà sostenere (si noti che la spesa può anche essere nulla)",true,INT);

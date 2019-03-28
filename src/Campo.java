@@ -10,7 +10,7 @@ import MyLib.Utility;
  * Un campo possiede le seguenti caratterisitiche:
  * nome;
  * descrizione;
- * obbligatoriet√† del campo;
+ * obbligatoriet‡† del campo;
  * valore del campo.
  *
  * @author Gabriele Manenti
@@ -33,7 +33,7 @@ public class Campo implements Serializable{
 	 *
 	 * @param _nome nome del campo
 	 * @param _descrizione descrizione del campo
-	 * @param _obbligatorio obbligatoriet√† del campo
+	 * @param _obbligatorio obbligatoriet‡† del campo
 	 * @param _valore tipologia del campo
 	 *
 	 * @author Gabriele Manenti
@@ -65,8 +65,8 @@ public class Campo implements Serializable{
 		return descrizione;
 	}
 	/**
-	 * Ritorna l'obbligatoriet√† del Campo
-	 * @return se un campo √® obbligatorio o meno
+	 * Ritorna l'obbligatoriet‡† del Campo
+	 * @return se un campo Ë obbligatorio o meno
 	 *
 	 * @author Gabriele Manenti
 	 */
@@ -105,9 +105,9 @@ public class Campo implements Serializable{
 		this.descrizione = descrizione;
 	}
 	/**
-	 * Metodo che imposta l'obbligatoriet√† di un Campo.
+	 * Metodo che imposta l'obbligatoriet‡† di un Campo.
 	 *
-	 * @param obbligatorio l'obbligatoriet√† del campo
+	 * @param obbligatorio l'obbligatoriet‡† del campo
 	 *
 	 * @author Gabriele Manenti
 	 */

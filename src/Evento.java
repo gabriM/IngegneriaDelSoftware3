@@ -24,8 +24,8 @@ import MyLib.Utility;
 public class Evento implements Serializable{
 	
 	/*Costanti*/
-	final String[] TESTOCHIUSURA={"L'evento "," ha raggiunto un numero sufficiente di iscrizioni e si terra dunque in data "," alle ore "," presso ",". Si ricorda che ÔøΩ necessatrio versare la quota di iscrizione di "," Euro."};
-	final String[] TESTOFALLITO={"L'evento "," NON ha raggiunto un numero sufficiente di iscrizioni ed √® quindi stato cancellato."};
+	final String[] TESTOCHIUSURA={"L'evento "," ha raggiunto un numero sufficiente di iscrizioni e si terra dunque in data "," alle ore "," presso ",". Si ricorda che Ë necessatrio versare la quota di iscrizione di "," Euro."};
+	final String[] TESTOFALLITO={"L'evento "," NON ha raggiunto un numero sufficiente di iscrizioni ed Ë quindi stato cancellato."};
 	final String[] TESTOANNULLATO={"L'evento "," E' stato cancellato dall'organizzatore."};
 	
 	
@@ -40,7 +40,7 @@ public class Evento implements Serializable{
 	
 	/*Costruttori*/
 	/**
-	 * Una evento e' costituito da categoria, validit√†, creatore, elenco utenti e stato.
+	 * Una evento e' costituito da categoria, validit‡†, creatore, elenco utenti e stato.
 	 *
 	 * @param _categoria categoria dell'evento
 	 * @param _creatore creatore dell'evento
@@ -65,8 +65,8 @@ public class Evento implements Serializable{
 		return categoria;
 	}
 	/**
-	 * Ritorna la validit√† dell'evento
-	 * @return validita dell'evento
+	 * Ritorna la validit‡† dell'evento
+	 * @return validit‡ dell'evento
 	 *
 	 * @author Matteo Gusmini
 	 */
@@ -112,8 +112,8 @@ public class Evento implements Serializable{
 		this.categoria = categoria;
 	}
 	/**
-	 * Metodo che imposta la validit√† dell'evento
-	 * @param validita validit√† dell'evento
+	 * Metodo che imposta la validit‡† dell'evento
+	 * @param validita validit‡† dell'evento
 	 *
 	 * @author Matteo Gusmini
 	 */
@@ -200,10 +200,10 @@ public class Evento implements Serializable{
 		
 	}
 	/**
-	 * Metodo che, dato il nome di un utente, permette di sapere se questo utente √® gi√† iscritto ad un evento
+	 * Metodo che, dato il nome di un utente, permette di sapere se questo utente Ë gi‡† iscritto ad un evento
 	 *
 	 * @param utente il nome dell'utente
-	 * @return true se l'utente √® presente nell'elenco di utenti iscritti all'evento, false altrimenti
+	 * @return true se l'utente Ë presente nell'elenco di utenti iscritti all'evento, false altrimenti
 	 *
 	 * @author Matteo Gusmini
 	 */
@@ -258,7 +258,7 @@ public class Evento implements Serializable{
 		return valido;
 	}
 	/**
-	 * Controlla se il numero di partecipanti di un evento ha raggiunto il limite e se √® vero imposta lo stato evento come "Chiuso" e
+	 * Controlla se il numero di partecipanti di un evento ha raggiunto il limite e se Ë vero imposta lo stato evento come "Chiuso" e
 	 * genera i messaggi (Restituisce un ArrayList di Messaggio) contenenti informazioni relative allo stato dell'evento e li manda
 	 * a tutti gli utenti iscritti all'evento
 	 *
@@ -308,8 +308,8 @@ public class Evento implements Serializable{
 		
 	}
 	/**
-	 * Controlla se √® stata superata la data di termine iscrizione o quella di svolgimento dell'evento e se i posti disponibili sono esauriti: se √® vero imposta
-	 * lo stato evento come "Concluso", altrimenti se √® stata superata la data di termine iscrizione o quella di svolgimento dell'evento ma non si √® raggiunto
+	 * Controlla se Ë stata superata la data di termine iscrizione o quella di svolgimento dell'evento e se i posti disponibili sono esauriti: se Ë vero imposta
+	 * lo stato evento come "Concluso", altrimenti se Ë stata superata la data di termine iscrizione o quella di svolgimento dell'evento ma non si Ë raggiunto
 	 * il numero minimo di partecipanti, lo stato dell'evento viene impostato come "Fallito" e genera i messaggi (Restituisce un ArrayList di Messaggio) contenenti
 	 * informazioni relative allo stato dell'evento e li manda a tutti gli utenti iscritti all'evento.
 	 *
@@ -367,7 +367,7 @@ public class Evento implements Serializable{
 		return messaggiStato;
 	}
 	/**
-	 * Controlla se l'evento √® stato cancellato dal creatore evento e genera i messaggi (Restituisce un ArrayList di Messaggio) contenenti
+	 * Controlla se l'evento Ë stato cancellato dal creatore evento e genera i messaggi (Restituisce un ArrayList di Messaggio) contenenti
 	 * informazioni relative allo stato dell'evento e li manda a tutti gli utenti iscritti all'evento.
 	 *
 	 * @return <strong>un elenco di messaggi</strong> contenenti informazioni relative allo stato dell'evento che vengono mandati a tutti gli iscritti all'evento
@@ -390,7 +390,7 @@ public class Evento implements Serializable{
 	/**
 	 * Metodo che controlla che la data odierna sia precedente o uguale alla data di ritiro Iscrizione
 	 *
-	 * @return true se la data odierna √® precedente o uguale alla data di ritiro Iscrizione, false altrimenti
+	 * @return true se la data odierna Ë precedente o uguale alla data di ritiro Iscrizione, false altrimenti
 	 *
 	 * @author Matteo Gusmini
 	 */

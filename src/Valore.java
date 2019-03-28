@@ -86,7 +86,7 @@ public class Valore implements Serializable{
 		inserito=false;
 	}
 	/**
-	 * Controlla che tipo di valore Ã¨ l'oggetto esaminato:
+	 * Controlla che tipo di valore è l'oggetto esaminato:
 	 *
 	 * @return 0 in caso di stringa
 	 * @return 1 in caso di valore numerico(INT)

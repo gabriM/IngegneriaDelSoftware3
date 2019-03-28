@@ -33,7 +33,7 @@ public class Main {
 		final String NOMEMENU="GESTIONE Eventi";
 		final String NOMEMENUMSG="GESTIONE Messaggi";
 		final String[] OPZIONIMSG={"Visualizza messaggi", "Elimina messaggi"};
-		final String[] OPZIONI={"Visualizza Categorie Disponibili","Crea un nuovo evento","Visualizza i miei eventi non ancora pubblicati","Pubblica eventi","Visualizza Bacheca","Partecipa a evento","Gestione Messaggi", "Elimina Iscrizione evento", "Elimina evento","Genera evento standard per test"};
+		final String[] OPZIONI={"Visualizza Categorie Disponibili","Crea un nuovo evento","Visualizza i miei eventi non ancora pubblicati","Pubblica eventi","Visualizza Bacheca","Partecipa a evento","Gestione Messaggi", "Elimina Iscrizione evento", "Elimina evento"/*,"Genera evento standard per test"*/};
 		final String NOME="Nome categoria: ";
 		final String STATO="Stato: ";
 		final String POSTILIBERI="Posti liberi: ";
@@ -44,18 +44,18 @@ public class Main {
 		final String SCELTAEVENTOPUBBLICAZIONE ="Quale evento vuoi pubblicare?";
 		final String SCELTAMSG ="Quale messaggio vuoi eliminare?";
 		final String NOMEEVENTO="Nome evento: ";
-		final String VALIDITAPUBBLICAZIONE = "L'evento selezionato √® valido, √® stato pubblicato ed √® visibile sulla bacheca.";
-		final String NONVALIDITAPUBBLICAZIONE = "L'evento selezionato non √® valido! Selezionare un altro evento. \n (Un Evento √® valido solo se √® stato assegnato un valore a tutti i campi obbligatori)";
+		final String VALIDITAPUBBLICAZIONE = "L'evento selezionato Ë valido, Ë stato pubblicato ed Ë visibile sulla bacheca.";
+		final String NONVALIDITAPUBBLICAZIONE = "L'evento selezionato non Ë valido! Selezionare un altro evento. \n (Un Evento Ë valido solo se Ë stato assegnato un valore a tutti i campi obbligatori)";
 		final String BACHECAVUOTA = "Non vi sono eventi validi pubblicati.";
-		final String BACHECAEVENTIVUOTA = "Non vi sono eventi validi a cui ti √® consentito iscriverti.";
+		final String BACHECAEVENTIVUOTA = "Non vi sono eventi validi a cui ti Ë consentito iscriverti.";
 		final String EVENTIVUOTI = "Non ci sono eventi creati e non acora pubblicati in bacheca.";
 		final String EVENTIPUBBLICATIVUOTI = "Non hai ancora pubblicato eventi in bacheca.";
 		final String MESSAGGIVUOTI = "Non ci sono messaggi.";
 		final String MSGEVENTO="Evento creato con successo";
 		final String MSGPROBDATE="Le date non sono in ordine logico. DATE CANCELLATE";
 		final String SCELTAELIMISCRIZIONE= "A quale evento vuoi cancellare la tua iscrizione?";
-		final String ISCRIZIONIVUOTE= "Non sei Iscritto a nessun evento o √® passata la data limite per il ritiro dell'iscrizione.";
-		final String CANCELLAZIONIVUOTE= "Non hai creato nessun evento o √® passata la data limite per il ritiro dell'evento.";
+		final String ISCRIZIONIVUOTE= "Non sei Iscritto a nessun evento o Ë passata la data limite per il ritiro dell'iscrizione.";
+		final String CANCELLAZIONIVUOTE= "Non hai creato nessun evento o Ë passata la data limite per il ritiro dell'evento.";
 		final String SCELTAELIMINEVENTO= "Quale evento pubblicato vuoi cancellare?";
 
 		
@@ -87,7 +87,7 @@ public class Main {
 		String utente= Utility.leggiStringa(MSGLOGIN);
 		
 		
-		/*Controllo se utente gi√† esistente*/
+		/*Controllo se utente gi‡† esistente*/
 		Boolean esistente =false;
 		int numUtente=0;
 		for(int i=0; i<elencoUtenti.size();i++){
@@ -163,7 +163,7 @@ public class Main {
 				/*Crea nuovo evento*/
 				
 				
-				/*Elenco delle categorie a cui pu√≤ appartenere l'evento*/
+				/*Elenco delle categorie a cui puÚ appartenere l'evento*/
 				for(int i=0; i<categorie.size();i++){
 					System.out.println(i+1+")");
 					System.out.println(NOME + categorie.get(i).getNome());
@@ -467,8 +467,8 @@ public class Main {
 
 					break;
 					
-				case 10:
-					/*Creazione evento con valori predefiniti*/
+				/*case 10:
+					 Creazione evento con valori predefiniti
 					
 					Evento eventopredef= new Evento(partita,elencoUtenti.get(numUtente));
 					eventopredef.inserisciValoriPredefinitiEvento();
@@ -479,7 +479,7 @@ public class Main {
 					System.out.println(MSGEVENTO);
 					
 					
-					break;
+					break;*/
 			}
 		}while(scelta!=0);
 		

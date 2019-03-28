@@ -90,10 +90,10 @@ public class Utente implements Serializable{
 
 	/*Metodi*/
 	/**
-	 * Metodo che, dato il nome di un utente, permette di sapere se Ã¨ lo stesso con cui si fa il confronto
+	 * Metodo che, dato il nome di un utente, permette di sapere se è lo stesso con cui si fa il confronto
 	 *
 	 * @param uConfronto il nome dell'utente
-	 * @return true se l'utente Ã¨ lo stesso, false altrimenti
+	 * @return true se l'utente è lo stesso, false altrimenti
 	 *
 	 * @author Matteo Gusmini
 	 */

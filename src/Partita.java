@@ -9,7 +9,7 @@ import MyLib.Utility;
  * In particolare definisce:
  *
  * genere, indica se i partecipanti sono maschi o femmine;
- * fasciaEta, indica l'et√† massima e minima per partecipare all'evento;
+ * fasciaEta, indica l'et‡† massima e minima per partecipare all'evento;
  * elencoCampi, l'elenco dei campi della categoria.
  *
  *
@@ -21,7 +21,7 @@ public class Partita extends Categoria {
 
 	/*Attributi*/
 	private Campo genere=new Campo("Genere","Indica se i partecipanti sono maschi o femmine",true,STRING);
-	private Campo fasciaEta=new Campo("Fascia di et√†","Indica l'et√† massima e minima per partecipare all'evento",true,STRING);
+	private Campo fasciaEta=new Campo("Fascia di et‡†","Indica l'et‡† massima e minima per partecipare all'evento",true,STRING);
 	private ArrayList<Campo> elencoCampi = new ArrayList<>();
 
 	/*Costruttori*/
@@ -47,8 +47,8 @@ public class Partita extends Categoria {
 		return genere;
 	}
 	/**
-	 * Ritorna la fascia di et√† dei partecipanti
-	 * @return la fascia di et√† dei partecipanti
+	 * Ritorna la fascia di et‡† dei partecipanti
+	 * @return la fascia di et‡† dei partecipanti
 	 *
 	 * @author Matteo Gusmini
 	 */
@@ -76,8 +76,8 @@ public class Partita extends Categoria {
 		this.genere = genere;
 	}
 	/**
-	 * Permette di cambiare la fascia di et√† dei partecipanti
-	 * @param fasciaEta la fascia di et√† dei partecipanti
+	 * Permette di cambiare la fascia di et‡† dei partecipanti
+	 * @param fasciaEta la fascia di et‡† dei partecipanti
 	 *
 	 * @author Matteo Gusmini
 	 */
