@@ -10,7 +10,7 @@ public class ServizioFile{
 
 
 	public static int esistenzaFile(File f){
-		if(f.exists())
+		if(f.length()!=0)
 			return 1;
 		else
 			return 0;
